@@ -17,8 +17,8 @@ rocky.on('draw', function(drawEvent) {
   var backgroundColor = 'black';
 
   if (settings) {
-    foregroundColor = cssColor(settings.ForegroundColor.value);
-    backgroundColor = cssColor(settings.BackgroundColor.value);
+    foregroundColor = cssColor(settings.ForegroundColor);
+    backgroundColor = cssColor(settings.BackgroundColor);
   }
 
   // BACKGROUND
@@ -45,7 +45,7 @@ rocky.on('draw', function(drawEvent) {
   if(!settings || (settings && settings.Blink.value)) {
     if (!(d.getSeconds() % 2)) {
       ctx.fillStyle = backgroundColor;
-      ctx.fillRect(66, 72 - obstruction_h, 12, 26);
+      ctx.fillRect(65, 72 - obstruction_h, 13, 26);
     }  
   }
 });
@@ -57,6 +57,8 @@ rocky.on('message', function(event) {
 rocky.on('secondchange', function(e) {
   rocky.requestDraw();
 });
+
+rocky.postMessage({command: 'settings'});
 
 function leftpad(str, len, ch) {
   str = String(str);

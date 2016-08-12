@@ -19,7 +19,18 @@ Pebble.addEventListener('webviewclosed', function(e) {
 
   // Return settings from Config Page to watch
   var settings = clay.getSettings(e.response, false);
-  rocky.postMessage(settings);
+
+  // Flatten to match localStorage version
+  var settingsFlat = {};
+  Object.keys(settings).forEach(function(key) {
+    if (typeof settings[key] === 'object' && settings[key]) {
+      settingsFlat[key] = settings[key].value;
+    } else {
+      settingsFlat[key] = settings[key];
+    }
+  });
+
+  rocky.postMessage(settingsFlat);
 });
 
 rocky.on('message', function(event) {
