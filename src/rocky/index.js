@@ -11,6 +11,7 @@ rocky.on('draw', function(drawEvent) {
   var w = ctx.canvas.unobstructedWidth;
   var h = ctx.canvas.unobstructedHeight;
   var obstruction_h = (ctx.canvas.clientHeight - ctx.canvas.unobstructedHeight) / 2;
+  var d = new Date();
 
   var foregroundColor = 'white';
   var backgroundColor = 'black';
@@ -19,8 +20,6 @@ rocky.on('draw', function(drawEvent) {
     foregroundColor = cssColor(settings.ForegroundColor.value);
     backgroundColor = cssColor(settings.BackgroundColor.value);
   }
-
-  var d = new Date();
 
   // BACKGROUND
   ctx.fillStyle = backgroundColor;
@@ -58,8 +57,6 @@ rocky.on('message', function(event) {
 rocky.on('secondchange', function(e) {
   rocky.requestDraw();
 });
-
-rocky.postMessage({command: 'settings'});
 
 function leftpad(str, len, ch) {
   str = String(str);
