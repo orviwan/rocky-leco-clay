@@ -1,0 +1,28 @@
+{
+  "name": "Leco-Clay",
+  "author": "MakeAwesomeHappen",
+  "version": "1.0.0",
+  "keywords": [
+    "pebble-app"
+  ],
+  "private": true,
+  "dependencies": {
+    "pebble-clay": "^1.0.2"
+  },
+  "pebble": {
+    "displayName": "Leco-Clay",
+    "uuid": "6faf21f4-e438-46b4-84e3-51775e143660",
+    "projectType": "rocky",
+    "sdkVersion": "3",
+    "enableMultiJS": true,
+    "watchapp": {
+      "watchface": true
+    },
+    "resources": {
+      "media": []
+    },
+    "capabilities": [
+      "configurable"
+    ]
+  }
+}
