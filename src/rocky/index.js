@@ -1,6 +1,6 @@
 var rocky = require('rocky');
 
-var monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 
+var monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
   'Oct', 'Nov', 'Dec'];
 var dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
@@ -23,11 +23,11 @@ rocky.on('draw', function(drawEvent) {
 
   // BACKGROUND
   ctx.fillStyle = backgroundColor;
-  ctx.fillRect(0, 0, ctx.canvas.clientWidth, ctx.canvas.clientHeight); 
+  ctx.fillRect(0, 0, ctx.canvas.clientWidth, ctx.canvas.clientHeight);
 
   // TIME
   ctx.fillStyle = foregroundColor;
-  var clockTime = leftpad(d.getHours(), 2, 0) + ':' + 
+  var clockTime = leftpad(d.getHours(), 2, 0) + ':' +
                     leftpad(d.getMinutes(), 2, 0); // TODO: Detect 24h
   ctx.font = '42px bold numbers Leco-numbers';
   ctx.textAlign = 'center';
@@ -35,18 +35,18 @@ rocky.on('draw', function(drawEvent) {
 
   // DATE
   ctx.fillStyle = foregroundColor;
-  var clockDate = dayNames[d.getDay()] + ' ' + d.getDate() + ' ' + 
+  var clockDate = dayNames[d.getDay()] + ' ' + d.getDate() + ' ' +
                     monthNames[d.getMonth()] + ', ' + d.getFullYear();
   ctx.font = '18px bold Gothic';
   ctx.textAlign = 'center';
   ctx.fillText(clockDate, w / 2, 100 - obstruction_h);
 
   // COLON BLINK MASK
-  if(!settings || (settings && settings.Blink.value)) {
+  if(!settings || (settings && settings.Blink)) {
     if (!(d.getSeconds() % 2)) {
       ctx.fillStyle = backgroundColor;
       ctx.fillRect(65, 72 - obstruction_h, 13, 26);
-    }  
+    }
   }
 });
 

@@ -1,5 +1,3 @@
-var rocky = require('rocky');
-
 var Clay = require('pebble-clay');
 var clayConfig = require('./config');
 var clay = new Clay(clayConfig, null, { autoHandleEvents: false });
@@ -30,10 +28,10 @@ Pebble.addEventListener('webviewclosed', function(e) {
     }
   });
 
-  rocky.postMessage(settingsFlat);
+  Pebble.postMessage(settingsFlat);
 });
 
-rocky.on('message', function(event) {
+Pebble.on('message', function(event) {
   if (event.data.command === 'settings') {
     restoreSettings();
   }
@@ -43,6 +41,6 @@ function restoreSettings() {
   // Restore settings from localStorage and send to watch
   var settings = JSON.parse(localStorage.getItem('clay-settings'));
   if (settings) {
-    rocky.postMessage(settings);
-  } 
+    Pebble.postMessage(settings);
+  }
 }
