@@ -2,10 +2,6 @@ var Clay = require('pebble-clay');
 var clayConfig = require('./config');
 var clay = new Clay(clayConfig, null, { autoHandleEvents: false });
 
-Pebble.addEventListener('ready', function(e) {
-  restoreSettings();
-});
-
 Pebble.addEventListener('showConfiguration', function(e) {
   Pebble.openURL(clay.generateUrl());
 });
