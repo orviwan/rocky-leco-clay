@@ -1,3 +1,4 @@
+
 {
   "name": "Leco-Clay",
   "author": "MakeAwesomeHappen",
@@ -6,9 +7,6 @@
     "pebble-app"
   ],
   "private": true,
-  "dependencies": {
-    "pebble-clay": "^1.0.2"
-  },
   "pebble": {
     "displayName": "Leco-Clay",
     "uuid": "6faf21f4-e438-46b4-84e3-51775e143660",
