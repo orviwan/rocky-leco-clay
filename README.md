@@ -2,4 +2,4 @@
 
 A simple watchface for Pebble, written using Rocky.js and configurable with Clay.
 
-After cloning, `$ pebble package install pebble-clay`
+https://github.com/pebble/clay#getting-started-rockyjs
